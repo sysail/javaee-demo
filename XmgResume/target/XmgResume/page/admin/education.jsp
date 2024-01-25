@@ -1,17 +1,20 @@
-﻿<!DOCTYPE html>
+﻿<%@ page contentType="text/html; charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% request.setAttribute("ctx", request.getContextPath()); %>
+<!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
     <title>小码哥简历管理-教育信息</title>
-    <link rel="icon" href="../asset/admin/img/favicon.png" type="image/x-icon">
-    <link href="../asset/plugin/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link href="../asset/plugin/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet">
-    <link href="../asset/plugin/node-waves/waves.css" rel="stylesheet">
-    <link href="../asset/plugin/animate-css/animate.min.css" rel="stylesheet">
-    <link href="../asset/admin/css/material-icons.css" rel="stylesheet">
-    <link href="../asset/admin/css/style.min.css" rel="stylesheet">
-    <link href="../asset/admin/css/theme-blue.min.css" rel="stylesheet">
-    <link href="../asset/admin/css/main.css" rel="stylesheet">
+    <link rel="icon" href="${ctx}/page/asset/admin/img/favicon.png" type="image/x-icon">
+    <link href="${ctx}/page/asset/plugin/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="${ctx}/page/asset/plugin/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet">
+    <link href="${ctx}/page/asset/plugin/node-waves/waves.css" rel="stylesheet">
+    <link href="${ctx}/page/asset/plugin/animate-css/animate.min.css" rel="stylesheet">
+    <link href="${ctx}/page/asset/admin/css/material-icons.css" rel="stylesheet">
+    <link href="${ctx}/page/asset/admin/css/style.min.css" rel="stylesheet">
+    <link href="${ctx}/page/asset/admin/css/theme-blue.min.css" rel="stylesheet">
+    <link href="${ctx}/page/asset/admin/css/main.css" rel="stylesheet">
 </head>
 
 <body class="theme-blue">
@@ -54,7 +57,7 @@
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="../asset/admin/img/avatar.png" alt="User">
+                    <img src="${ctx}/page/asset/admin/img/avatar.png" alt="User">
                 </div>
                 <div class="info-container">
                     <div class="name">M了个J</div>
@@ -62,9 +65,9 @@
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="../front/user.html"><i class="material-icons">person</i>个人信息</a></li>
+                            <li><a href="${ctx}/page/front/user.html"><i class="material-icons">person</i>个人信息</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="../login.html"><i class="material-icons">input</i>退出登录</a></li>
+                            <li><a href="${ctx}/page/login.html"><i class="material-icons">input</i>退出登录</a></li>
                         </ul>
                     </div>
                 </div>
@@ -183,78 +186,32 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="switch">
-                                            <label><input type="checkbox"><span class="lever switch-col-blue"></span></label>
-                                        </div>
-                                    </td>
-                                    <td>XX大学</td>
-                                    <td>2011-09-09</td>
-                                    <td>2014-08-08</td>
-                                    <td>本科</td>
-                                    <td>XXX</td>
-                                    <td>
-                                        <button type="button" class="btn bg-blue waves-effect btn-xs"
-                                                onclick="edit()">
-                                            <i class="material-icons">edit</i>
-                                            <span>编辑</span>
-                                        </button>
-                                        <button type="button" class="btn bg-pink waves-effect btn-xs"
-                                                onclick="remove('XX大学')">
-                                            <i class="material-icons">delete</i>
-                                            <span>删除</span>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="switch">
-                                            <label><input type="checkbox"><span class="lever switch-col-blue"></span></label>
-                                        </div>
-                                    </td>
-                                    <td>XX大学</td>
-                                    <td>2011-09-09</td>
-                                    <td>2014-08-08</td>
-                                    <td>本科</td>
-                                    <td>XXX</td>
-                                    <td>
-                                        <button type="button" class="btn bg-blue waves-effect btn-xs"
-                                                onclick="edit()">
-                                            <i class="material-icons">edit</i>
-                                            <span>编辑</span>
-                                        </button>
-                                        <button type="button" class="btn bg-pink waves-effect btn-xs"
-                                                onclick="remove('XX大学')">
-                                            <i class="material-icons">delete</i>
-                                            <span>删除</span>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="switch">
-                                            <label><input type="checkbox"><span class="lever switch-col-blue"></span></label>
-                                        </div>
-                                    </td>
-                                    <td>XX大学</td>
-                                    <td>2011-09-09</td>
-                                    <td>2014-08-08</td>
-                                    <td>本科</td>
-                                    <td>XXX</td>
-                                    <td>
-                                        <button type="button" class="btn bg-blue waves-effect btn-xs"
-                                                onclick="edit()">
-                                            <i class="material-icons">edit</i>
-                                            <span>编辑</span>
-                                        </button>
-                                        <button type="button" class="btn bg-pink waves-effect btn-xs"
-                                                onclick="remove('XX大学')">
-                                            <i class="material-icons">delete</i>
-                                            <span>删除</span>
-                                        </button>
-                                    </td>
-                                </tr>
+                                <c:forEach items="${educations}" var="education">
+                                    <tr>
+                                        <td>
+                                            <div class="switch">
+                                                <label><input type="checkbox"><span class="lever switch-col-blue"></span></label>
+                                            </div>
+                                        </td>
+                                        <td>${education.name}</td>
+                                        <td>${education.beginDay}</td>
+                                        <td>${education.endDay}</td>
+                                        <td>${education.type}</td>
+                                        <td>${education.intro}</td>
+                                        <td>
+                                            <button type="button" class="btn bg-blue waves-effect btn-xs"
+                                                    onclick="edit()">
+                                                <i class="material-icons">edit</i>
+                                                <span>编辑</span>
+                                            </button>
+                                            <button type="button" class="btn bg-pink waves-effect btn-xs"
+                                                    onclick="remove(${education.name})">
+                                                <i class="material-icons">delete</i>
+                                                <span>删除</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
                                 </tbody>
                             </table>
                         </div>
@@ -358,18 +315,18 @@
         </div>
     </div>
 
-    <script src="../asset/plugin/jquery/jquery.min.js"></script>
-    <script src="../asset/plugin/bootstrap/bootstrap.min.js"></script>
-    <script src="../asset/plugin/bootstrap-fileinput/bootstrap-fileinput.js"></script>
-    <script src="../asset/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
-    <script src="../asset/plugin/node-waves/waves.js"></script>
-    <script src="../asset/plugin/jquery-validation/jquery.validate.js"></script>
-    <script src="../asset/plugin/jquery-validation/messages_zh.js"></script>
-    <script src="../asset/plugin/sweetalert/sweetalert.min.js"></script>
+    <script src="${ctx}/page/asset/plugin/jquery/jquery.min.js"></script>
+    <script src="${ctx}/page/asset/plugin/bootstrap/bootstrap.min.js"></script>
+    <script src="${ctx}/page/asset/plugin/bootstrap-fileinput/bootstrap-fileinput.js"></script>
+    <script src="${ctx}/page/asset/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+    <script src="${ctx}/page/asset/plugin/node-waves/waves.js"></script>
+    <script src="${ctx}/page/asset/plugin/jquery-validation/jquery.validate.js"></script>
+    <script src="${ctx}/page/asset/plugin/jquery-validation/messages_zh.js"></script>
+    <script src="${ctx}/page/asset/plugin/sweetalert/sweetalert.min.js"></script>
 
     <!-- Custom Js -->
-    <script src="../asset/admin/js/default.js"></script>
-    <script src="../asset/admin/js/main.js"></script>
+    <script src="${ctx}/page/asset/admin/js/default.js"></script>
+    <script src="${ctx}/page/asset/admin/js/main.js"></script>
     <script>
         addValidatorRules('.form-validation')
 
