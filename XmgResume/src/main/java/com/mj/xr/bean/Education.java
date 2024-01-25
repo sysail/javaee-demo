@@ -8,14 +8,15 @@ public class Education extends BaseBean {
     private Date beginDay;
     private Date endDay;
     /**
-     * 0: 小学
-     * 1: 初中
-     * 2: 高中
-     * 3: 本科
-     * 4: 硕士
-     * 5: 博士
-     * 6:
-     * 7:
+     * 1: 小学
+     * 2: 初中
+     * 3: 高中
+     * 4: 中专
+     * 5: 大专
+     * 6: 本科
+     * 7: 硕士
+     * 8: 博士
+     * 0: 其他
      * */
     private int type;
 

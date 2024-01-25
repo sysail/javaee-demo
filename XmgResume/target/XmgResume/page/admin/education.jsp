@@ -229,7 +229,7 @@
                     <h4 class="modal-title">添加教育</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="form-validation" method="post">
+                    <form class="form-validation" method="post" action="${ctx}/education/save">
                         <div class="row">
                             <div class="col-lg-2 col-md-2 col-sm-3 col-xs-3 form-control-label">
                                 <label for="name">名称</label>
