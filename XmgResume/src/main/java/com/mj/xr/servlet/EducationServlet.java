@@ -28,4 +28,14 @@ public class EducationServlet extends BaseServlet {
             request.getRequestDispatcher("/page/error.jsp").forward(request, response);
         }
     }
+
+    public void remove(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        Integer id = Integer.valueOf(request.getParameter("id"));
+        if (dao.remove(id)) {
+            response.sendRedirect(request.getContextPath() + "/education/admin");
+        } else {
+            request.setAttribute("error", "教育信息删除失败");
+            request.getRequestDispatcher("/page/error.jsp").forward(request, response);
+        }
+    }
 }

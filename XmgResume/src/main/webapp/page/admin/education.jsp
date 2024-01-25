@@ -1,5 +1,6 @@
 ﻿<%@ page contentType="text/html; charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <% request.setAttribute("ctx", request.getContextPath()); %>
 <!DOCTYPE html>
 <html lang="zh">
@@ -194,9 +195,9 @@
                                             </div>
                                         </td>
                                         <td>${education.name}</td>
-                                        <td>${education.beginDay}</td>
-                                        <td>${education.endDay}</td>
-                                        <td>${education.type}</td>
+                                        <td><fmt:formatDate pattern="yyyy/MM/dd" value="${education.beginDay}"/></td>
+                                        <td><fmt:formatDate pattern="yyyy/MM/dd" value="${education.endDay}"/></td>
+                                        <td>${education.getTypeString()}</td>
                                         <td>${education.intro}</td>
                                         <td>
                                             <button type="button" class="btn bg-blue waves-effect btn-xs"
@@ -205,7 +206,7 @@
                                                 <span>编辑</span>
                                             </button>
                                             <button type="button" class="btn bg-pink waves-effect btn-xs"
-                                                    onclick="remove(${education.name})">
+                                                    onclick="remove('${education.id}', '${education.name}')">
                                                 <i class="material-icons">delete</i>
                                                 <span>删除</span>
                                             </button>
@@ -334,7 +335,7 @@
             $('#add-form-box').modal()
         }
 
-        function remove(name) {
+        function remove(id, name) {
             swal({
                 title: "你确定？",
                 text: '你确定要删除【' + name + '】？',
@@ -346,6 +347,7 @@
                 }
             }).then(willDelete => {
                 if (!willDelete) return
+                location.href = '${ctx}/education/remove?id=' + id;
                 swal({
                     title: '删除成功',
                     text: '【' + name + '】已经被删除！',

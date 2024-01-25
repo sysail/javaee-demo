@@ -12,7 +12,8 @@ public class EducationDao extends BaseDao {
      * 删除单个对象
      * */
     public boolean remove(Integer id) {
-        return false;
+        String sql = "DELETE FROM education WHERE id = ?";
+        return tpl.update(sql, id) > 0;
     }
 
     /**
