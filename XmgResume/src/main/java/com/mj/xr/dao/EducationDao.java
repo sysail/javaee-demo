@@ -17,6 +17,21 @@ public class EducationDao extends BaseDao {
     }
 
     /**
+     * 删除多个对象
+     * */
+    public boolean remove(List<Integer> ids) {
+        List<Object> args = new ArrayList<>();
+        StringBuilder sql = new StringBuilder();
+        sql.append("DELETE FROM education WHERE id in (");
+        for (Integer id : ids) {
+            args.add(id);
+            sql.append("?, ");
+        }
+        sql.replace(sql.length() - 2, sql.length(), ")");
+        return tpl.update(sql.toString(), args.toArray()) > 0;
+    }
+
+    /**
      * 保存或修改
      * */
     public boolean save(Education education) {
