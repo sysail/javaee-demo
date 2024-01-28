@@ -31,6 +31,7 @@ public class EducationServlet extends BaseServlet {
         }
     }
 
+    /**
     public void remove(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Integer id = Integer.valueOf(request.getParameter("id"));
         if (dao.remove(id)) {
@@ -40,8 +41,9 @@ public class EducationServlet extends BaseServlet {
             request.getRequestDispatcher("/page/error.jsp").forward(request, response);
         }
     }
+     */
 
-    public void removeAll(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public void remove(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String[] idStrs = request.getParameterValues("id");
         List<Integer> ids = new ArrayList<>();
         for (String idStr : idStrs) {

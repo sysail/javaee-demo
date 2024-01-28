@@ -187,7 +187,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <form id="remove-form" action="${ctx}/education/removeAll" method="post">
+                                    <form id="remove-form" action="${ctx}/education/remove" method="post">
                                         <c:forEach items="${educations}" var="education">
                                         <tr>
                                             <td>
