@@ -156,7 +156,7 @@
                             <div class="menus">
                                 <div class="buttons">
                                     <button type="button" class="btn bg-blue waves-effect btn-sm"
-                                            data-toggle="modal" data-target="#add-form-box">
+                                            onclick="add()">
                                         <i class="material-icons">add</i>
                                         <span>添加</span>
                                     </button>
@@ -332,6 +332,11 @@
     <script src="${ctx}/page/asset/admin/js/main.js"></script>
     <script>
         addValidatorRules('.form-validation')
+
+        function add() {
+            $('#add-form-box').modal()
+            $('#add-form-box form')[0].reset()
+        }
 
         function edit() {
             $('#add-form-box').modal()
