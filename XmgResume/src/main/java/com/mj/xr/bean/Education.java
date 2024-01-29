@@ -1,5 +1,6 @@
 package com.mj.xr.bean;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Education extends BaseBean {
@@ -62,5 +63,19 @@ public class Education extends BaseBean {
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String beginDayString = format.format(beginDay);
+        String endDayString = format.format(endDay);
+        return "{" +
+                "name:'" + name +
+                "', intro:'" + intro +
+                "', beginDay:'" + beginDayString +
+                "', endDay:'" + endDayString +
+                "', type:" + type +
+                "}";
     }
 }

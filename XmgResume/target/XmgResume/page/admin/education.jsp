@@ -202,7 +202,7 @@
                                             <td>${education.intro}</td>
                                             <td>
                                                 <button type="button" class="btn bg-blue waves-effect btn-xs"
-                                                        onclick="edit()">
+                                                        onclick="edit(${education})">
                                                     <i class="material-icons">edit</i>
                                                     <span>编辑</span>
                                                 </button>
@@ -333,13 +333,22 @@
     <script>
         addValidatorRules('.form-validation')
 
+        const $addFormBox = $('#add-form-box')
+        const $addForm = $addFormBox.find('form')
+
         function add() {
-            $('#add-form-box').modal()
-            $('#add-form-box form')[0].reset()
+            $addFormBox.modal()
+            $addForm[0].reset()
         }
 
-        function edit() {
-            $('#add-form-box').modal()
+        function edit(education) {
+            add()
+
+            $addForm.find('[name=name]').val(education.name)
+            $addForm.find('[name=beginDay]').val(education.beginDay)
+            $addForm.find('[name=endDay]').val(education.endDay)
+            $addForm.find('[name=type]').val(education.type)
+            $addForm.find('[name=intro]').val(education.intro)
         }
 
         function remove(id, name) {
