@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Education extends BaseBean {
+    private Integer id;
     private String name;
     private String intro;
     private Date beginDay;
@@ -26,6 +27,16 @@ public class Education extends BaseBean {
             case 8: return "博士";
             default: return "";
         }
+    }
+
+    @Override
+    public Integer getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
