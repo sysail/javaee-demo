@@ -15,8 +15,6 @@ public class EducationServlet extends BaseServlet {
     private final EducationDao dao = new EducationDao();
 
     public void admin(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        Education education = dao.list().get(0);
-        System.out.println(education.toString());
         request.setAttribute("educations", dao.list());
         request.getRequestDispatcher("/page/admin/education.jsp").forward(request, response);
     }

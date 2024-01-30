@@ -3,6 +3,9 @@ package com.mj.xr.bean;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class Education extends BaseBean {
     private String name;
     private String intro;
@@ -77,5 +80,12 @@ public class Education extends BaseBean {
                 "', endDay:'" + endDayString +
                 "', type:" + type +
                 "}";
+    }
+
+    @JsonIgnore
+    public String getJson() throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd"));
+        return mapper.writeValueAsString(this).replace("\"", "'");
     }
 }

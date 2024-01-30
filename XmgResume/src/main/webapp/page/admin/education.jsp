@@ -202,7 +202,7 @@
                                             <td>${education.intro}</td>
                                             <td>
                                                 <button type="button" class="btn bg-blue waves-effect btn-xs"
-                                                        onclick="edit(${education})">
+                                                        onclick="edit(${education.json})">
                                                     <i class="material-icons">edit</i>
                                                     <span>编辑</span>
                                                 </button>
