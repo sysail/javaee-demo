@@ -16,7 +16,7 @@ public class EducationServlet extends BaseServlet {
 
     public void admin(HttpServletRequest request, HttpServletResponse response) throws Exception {
         request.setAttribute("educations", dao.list());
-        request.getRequestDispatcher("/page/admin/education.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/page/admin/education.jsp").forward(request, response);
     }
 
     public void save(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -27,7 +27,7 @@ public class EducationServlet extends BaseServlet {
             response.sendRedirect(request.getContextPath() + "/education/admin");
         } else {
             request.setAttribute("error", "教育信息保存失败");
-            request.getRequestDispatcher("/page/error.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/page/error.jsp").forward(request, response);
         }
     }
 
@@ -53,7 +53,7 @@ public class EducationServlet extends BaseServlet {
             response.sendRedirect(request.getContextPath() + "/education/admin");
         } else {
             request.setAttribute("error", "教育信息删除失败");
-            request.getRequestDispatcher("/page/error.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/page/error.jsp").forward(request, response);
         }
     }
 }

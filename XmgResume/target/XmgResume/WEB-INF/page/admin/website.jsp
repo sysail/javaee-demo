@@ -5,15 +5,15 @@
 <head>
     <meta charset="UTF-8">
     <title>小码哥简历管理-网站信息</title>
-    <link rel="icon" href="${ctx}/page/asset/admin/img/favicon.png" type="image/x-icon">
-    <link href="${ctx}/page/asset/plugin/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link href="${ctx}/page/asset/plugin/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet">
-    <link href="${ctx}/page/asset/plugin/node-waves/waves.css" rel="stylesheet">
-    <link href="${ctx}/page/asset/plugin/animate-css/animate.min.css" rel="stylesheet">
-    <link href="${ctx}/page/asset/admin/css/material-icons.css" rel="stylesheet">
-    <link href="${ctx}/page/asset/admin/css/style.min.css" rel="stylesheet">
-    <link href="${ctx}/page/asset/admin/css/theme-blue.min.css" rel="stylesheet">
-    <link href="${ctx}/page/asset/admin/css/main.css" rel="stylesheet">
+    <link rel="icon" href="${ctx}/asset/admin/img/favicon.png" type="image/x-icon">
+    <link href="${ctx}/asset/plugin/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="${ctx}/asset/plugin/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet">
+    <link href="${ctx}/asset/plugin/node-waves/waves.css" rel="stylesheet">
+    <link href="${ctx}/asset/plugin/animate-css/animate.min.css" rel="stylesheet">
+    <link href="${ctx}/asset/admin/css/material-icons.css" rel="stylesheet">
+    <link href="${ctx}/asset/admin/css/style.min.css" rel="stylesheet">
+    <link href="${ctx}/asset/admin/css/theme-blue.min.css" rel="stylesheet">
+    <link href="${ctx}/asset/admin/css/main.css" rel="stylesheet">
 </head>
 
 <body class="theme-blue">
@@ -56,7 +56,7 @@
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="${ctx}/page/asset/admin/img/avatar.png" alt="User">
+                    <img src="${ctx}/asset/admin/img/avatar.png" alt="User">
                 </div>
                 <div class="info-container">
                     <div class="name">M了个J</div>
@@ -64,9 +64,9 @@
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="${ctx}/page/front/user.html"><i class="material-icons">person</i>个人信息</a></li>
+                            <li><a href="${ctx}/front/user.html"><i class="material-icons">person</i>个人信息</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="${ctx}/page/login.html"><i class="material-icons">input</i>退出登录</a></li>
+                            <li><a href="${ctx}/login.html"><i class="material-icons">input</i>退出登录</a></li>
                         </ul>
                     </div>
                 </div>
@@ -182,18 +182,18 @@
         </div>
     </section>
 
-    <script src="${ctx}/page/asset/plugin/jquery/jquery.min.js"></script>
-    <script src="${ctx}/page/asset/plugin/bootstrap/bootstrap.min.js"></script>
-    <script src="${ctx}/page/asset/plugin/bootstrap-fileinput/bootstrap-fileinput.js"></script>
-    <script src="${ctx}/page/asset/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
-    <script src="${ctx}/page/asset/plugin/node-waves/waves.js"></script>
-    <script src="${ctx}/page/asset/plugin/jquery-validation/jquery.validate.js"></script>
-    <script src="${ctx}/page/asset/plugin/jquery-validation/messages_zh.js"></script>
-    <script src="${ctx}/page/asset/plugin/sweetalert/sweetalert.min.js"></script>
+    <script src="${ctx}/asset/plugin/jquery/jquery.min.js"></script>
+    <script src="${ctx}/asset/plugin/bootstrap/bootstrap.min.js"></script>
+    <script src="${ctx}/asset/plugin/bootstrap-fileinput/bootstrap-fileinput.js"></script>
+    <script src="${ctx}/asset/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+    <script src="${ctx}/asset/plugin/node-waves/waves.js"></script>
+    <script src="${ctx}/asset/plugin/jquery-validation/jquery.validate.js"></script>
+    <script src="${ctx}/asset/plugin/jquery-validation/messages_zh.js"></script>
+    <script src="${ctx}/asset/plugin/sweetalert/sweetalert.min.js"></script>
 
     <!-- Custom Js -->
-    <script src="${ctx}/page/asset/admin/js/default.js"></script>
-    <script src="${ctx}/page/asset/admin/js/main.js"></script>
+    <script src="${ctx}/asset/admin/js/default.js"></script>
+    <script src="${ctx}/asset/admin/js/main.js"></script>
 </body>
 
 </html>

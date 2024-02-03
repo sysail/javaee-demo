@@ -19,7 +19,7 @@ public class WebsiteServlet extends BaseServlet {
         request.setAttribute("website", website);
 
         // 转发
-        request.getRequestDispatcher("/page/admin/website.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/page/admin/website.jsp").forward(request, response);
     }
 
     public void save(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -30,7 +30,7 @@ public class WebsiteServlet extends BaseServlet {
             response.sendRedirect(request.getContextPath() + "/website/admin");
         } else {
             request.setAttribute("error", "网站信息保存失败");
-            request.getRequestDispatcher("/page/error.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/page/error.jsp").forward(request, response);
         }
     }
 }
