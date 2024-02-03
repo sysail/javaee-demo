@@ -1,7 +1,8 @@
 package com.mj.xr.servlet;
 
 import com.mj.xr.bean.Website;
-import com.mj.xr.dao.WebsiteDao;
+import com.mj.xr.service.WebsiteService;
+import com.mj.xr.service.WebsiteServiceImpl;
 import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.annotation.WebServlet;
@@ -11,10 +12,10 @@ import java.util.List;
 
 @WebServlet("/website/*")
 public class WebsiteServlet extends BaseServlet {
-    private final WebsiteDao dao = new WebsiteDao();
+    private final WebsiteService service = new WebsiteServiceImpl();
 
     public void admin(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        List<Website> websites = dao.list();
+        List<Website> websites = service.list();
         Website website = (websites != null && !websites.isEmpty()) ? websites.get(0) : null;
         request.setAttribute("website", website);
 
@@ -25,7 +26,7 @@ public class WebsiteServlet extends BaseServlet {
     public void save(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Website website = new Website();
         BeanUtils.populate(website, request.getParameterMap());
-        if (dao.save(website)) {
+        if (service.save(website)) {
             // 重定向到原来的页面（刷新）
             response.sendRedirect(request.getContextPath() + "/website/admin");
         } else {

@@ -1,10 +1,10 @@
-package com.mj.xr.dao;
+package com.mj.xr.service;
 
 import com.mj.xr.bean.Website;
 
 import java.util.List;
 
-public interface WebsiteDao {
+public interface WebsiteService {
     /**
      * 删除单个对象
      * */

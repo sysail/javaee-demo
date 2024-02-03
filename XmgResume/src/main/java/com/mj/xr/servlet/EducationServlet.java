@@ -1,7 +1,8 @@
 package com.mj.xr.servlet;
 
 import com.mj.xr.bean.Education;
-import com.mj.xr.dao.EducationDao;
+import com.mj.xr.service.EducationService;
+import com.mj.xr.service.EducationServiceImpl;
 import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.annotation.WebServlet;
@@ -12,17 +13,17 @@ import java.util.List;
 
 @WebServlet("/education/*")
 public class EducationServlet extends BaseServlet {
-    private final EducationDao dao = new EducationDao();
+    private final EducationService service = new EducationServiceImpl();
 
     public void admin(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        request.setAttribute("educations", dao.list());
+        request.setAttribute("educations", service.list());
         request.getRequestDispatcher("/WEB-INF/page/admin/education.jsp").forward(request, response);
     }
 
     public void save(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Education education = new Education();
         BeanUtils.populate(education, request.getParameterMap());
-        if (dao.save(education)) {
+        if (service.save(education)) {
             // 重定向到原来的页面（刷新）
             response.sendRedirect(request.getContextPath() + "/education/admin");
         } else {
@@ -49,7 +50,7 @@ public class EducationServlet extends BaseServlet {
         for (String idStr : idStrs) {
             ids.add(Integer.valueOf(idStr));
         }
-        if (dao.remove(ids)) {
+        if (service.remove(ids)) {
             response.sendRedirect(request.getContextPath() + "/education/admin");
         } else {
             request.setAttribute("error", "教育信息删除失败");

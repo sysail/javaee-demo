@@ -1,13 +1,10 @@
-package com.mj.xr.dao;
+package com.mj.xr.service;
 
 import com.mj.xr.bean.Education;
-import com.mj.xr.util.Dbs;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public interface EducationDao {
+public interface EducationService {
     /**
      * 删除多个对象
      * */
