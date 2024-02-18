@@ -16,6 +16,11 @@ public class WebsiteDaoImpl implements WebsiteDao {
         return false;
     }
 
+    @Override
+    public boolean remove(List<Integer> ids) {
+        return false;
+    }
+
     /**
      * 保存或修改
      * */
