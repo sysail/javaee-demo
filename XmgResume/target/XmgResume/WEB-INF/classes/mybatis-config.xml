@@ -3,6 +3,11 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
+    <!-- 设置 -->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    
     <!-- 配置数据源 -->
     <environments default="development">
         <environment id="development">
@@ -27,4 +32,5 @@
         <!-- 使用类路径加载 -->
         <mapper resource="mappers/skill.xml"/>
     </mappers>
+
 </configuration>

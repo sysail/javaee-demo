@@ -25,6 +25,7 @@ public class Skill extends BaseBean {
         return "Skill{" +
                 "name='" + name + '\'' +
                 ", level=" + level +
+                ", createdTime=" + getCreatedTime() +
                 '}';
     }
 }
