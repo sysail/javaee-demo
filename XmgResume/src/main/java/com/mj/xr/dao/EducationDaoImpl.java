@@ -1,20 +1,19 @@
 package com.mj.xr.dao;
 
 import com.mj.xr.bean.Education;
-import com.mj.xr.util.Dbs;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class EducationDaoImpl implements EducationDao {
+public class EducationDaoImpl extends BaseDaoImpl<Education> implements EducationDao {
 
     /*
      * 删除单个对象
      * */
     public boolean remove(Integer id) {
         String sql = "DELETE FROM education WHERE id = ?";
-        return Dbs.getTpl().update(sql, id) > 0;
+        return tpl.update(sql, id) > 0;
     }
 
     /**
@@ -29,7 +28,7 @@ public class EducationDaoImpl implements EducationDao {
             sql.append("?, ");
         }
         sql.replace(sql.length() - 2, sql.length(), ")");
-        return Dbs.getTpl().update(sql.toString(), args.toArray()) > 0;
+        return tpl.update(sql.toString(), args.toArray()) > 0;
     }
 
     /**
@@ -50,7 +49,7 @@ public class EducationDaoImpl implements EducationDao {
             sql = "UPDATE education SET name = ?, type = ?, intro = ?, begin_day = ?, end_day = ? WHERE id = ?";
             args.add(id);
         }
-        return Dbs.getTpl().update(sql, args.toArray()) > 0;
+        return tpl.update(sql, args.toArray()) > 0;
     }
 
     /**
@@ -58,7 +57,7 @@ public class EducationDaoImpl implements EducationDao {
      * */
     public Education get(Integer id) {
         String sql = "SELECT id, created_time, name, type, intro, begin_day, end_day FROM education WHERE id = ?";
-        return Dbs.getTpl().queryForObject(sql, new BeanPropertyRowMapper<>(Education.class), id);
+        return tpl.queryForObject(sql, new BeanPropertyRowMapper<>(Education.class), id);
     }
 
     /**
@@ -66,7 +65,7 @@ public class EducationDaoImpl implements EducationDao {
      * */
     public List<Education> list() {
         String sql = "SELECT id, created_time, name, type, intro, begin_day, end_day FROM education";
-        return Dbs.getTpl().query(sql, new BeanPropertyRowMapper<>(Education.class));
+        return tpl.query(sql, new BeanPropertyRowMapper<>(Education.class));
     }
 
     /**
